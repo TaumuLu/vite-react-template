@@ -43,7 +43,7 @@
 
 - 压缩图片
   - https://tinypng.com/
-  - https://segmentfault.com/a/1190000024416860?sort=votes
+  - https://segmentfault.com/a/1190000024416860
 
 ### 文档
 
