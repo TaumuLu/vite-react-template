@@ -1,8 +1,8 @@
 {
   "cSpell.words": ["ischeckout"],
-  "cssModules.camelCase": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit"
-  }
+  },
+  "i18n-ally.localesPaths": []
 }

@@ -1,12 +1,13 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
 
-import App from './App.tsx'
+import App from './home/App.tsx'
 
-import './index.css'
+import './styles/index.scss'
+
+console.log('commit-hash', __COMMIT_HASH__)
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <App />,
+  // </React.StrictMode>,
 )

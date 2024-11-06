@@ -1,24 +1,20 @@
-import childProcess from 'child_process'
 import { resolve } from 'path'
 import postCssPxToRem from 'postcss-pxtorem'
-import { visualizer } from 'rollup-plugin-visualizer'
+// import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig, loadEnv } from 'vite'
 
-import pwa from './config/pwa'
+import { writeVersion } from './plugins/writeVersion'
 
-let commitHash = ''
-try {
-  commitHash = childProcess.execSync('git rev-parse HEAD').toString()
-} catch {
-  console.error('commitHash 获取失败 vite.config.ts')
-}
+// const version = process.env.VITE_COMMIT_HASH ?? 'dev'
+
+// 写版本号到文件
+const commitHash = writeVersion()
 
 const envDir = './env'
 
 const isTrue = flag => flag === 'true'
 
-const pcRootValue = 192
-const h5RootValue = 108
+const rootValue = 192
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -32,10 +28,10 @@ export default defineConfig(({ mode, command }) => {
       rollupOptions: {
         output: {
           assetFileNames(chunkInfo) {
-            if (['no-hash.png'].includes(chunkInfo.name)) {
-              return 'assets/[name][extname]'
-            }
-            return 'assets/[name]-[hash][extname]'
+            // if (['no-hash.png'].includes(chunkInfo.name)) {
+            //   return 'assets/[name][extname]'
+            // }
+            return 'assets/[ext]/[name]-[hash][extname]'
           },
         },
         // plugins: [visualizer({ open: true })],
@@ -50,7 +46,7 @@ export default defineConfig(({ mode, command }) => {
       //   ],
       // },
       // }),
-      isTrue(env.VITE_PWA_ENABLE) && pwa({ mode, isDev }),
+      // isTrue(env.VITE_PWA_ENABLE) && pwa({ mode, isDev }),
     ].filter(Boolean),
     envDir,
     resolve: {
@@ -79,42 +75,26 @@ export default defineConfig(({ mode, command }) => {
       },
     },
     define: {
-      __ROOT_VALUES__: JSON.stringify([pcRootValue, h5RootValue]),
+      __ROOT_VALUE__: JSON.stringify(rootValue),
       __COMMIT_HASH__: JSON.stringify(commitHash),
     },
     css: {
       preprocessorOptions: {
         scss: {
-          additionalData: `@use "sass:math"; @import "./src/styles/themes.scss"; @import "./src/styles/variable.scss"; @import "./src/styles/mixin.scss";`,
+          additionalData: `@use "sass:math"; @import "./src/styles/variable.scss";`,
         },
-      },
-      modules: {
-        scopeBehaviour: 'local',
-        generateScopedName: '[local]__[hash:base64:5]',
-        globalModulePaths: [],
-        localsConvention: 'camelCase',
       },
       postcss: {
         plugins: [
           postCssPxToRem({
-            rootValue: input => {
-              if (input.file.includes('.mobile.scss')) {
-                return h5RootValue
-              }
-              return pcRootValue
+            rootValue: () => {
+              return rootValue
             },
             propList: ['*'],
             exclude: input => {
-              if (/src(\\|\/)game/.test(input)) {
+              if (input.endsWith('.rem.scss')) {
                 return false
               }
-              if (/src(\\|\/)pages(\\|\/)login/.test(input)) {
-                return false
-              }
-              if (/src(\\|\/)pages(\\|\/)hall/.test(input)) {
-                return false
-              }
-              // TODO
               return true
             },
           }),
