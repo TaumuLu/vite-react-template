@@ -12,7 +12,7 @@
     "preview": "vite preview",
     "prettier": "prettier --write .",
     "feishu": "node ./scripts/feishu_run.js",
-    "prepare": "husky install",
+    "prepare": "husky",
     "tinypng": "node ./scripts/mtp.cjs && git add . && echo 0"
   },
   "dependencies": {
