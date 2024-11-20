@@ -27,12 +27,12 @@ module.exports = {
     'scss/operator-no-newline-after': null,
     'custom-property-pattern': null,
     'media-feature-range-notation': 'prefix',
-    "at-rule-no-unknown": null,
-    "scss/at-rule-no-unknown": [
-        true,
-        {
-            "ignoreAtRules": ["tailwind"]
-        }
+    'at-rule-no-unknown': null,
+    'scss/at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: ['tailwind'],
+      },
     ],
   },
 }
