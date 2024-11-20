@@ -82,12 +82,12 @@ export default defineConfig(({ mode, command }) => {
       __COMMIT_HASH__: JSON.stringify(commitHash),
     },
     css: {
-      // preprocessorOptions: {
-      //   scss: {
-      //     additionalData: `@use "sass:math";`,
-      //     silenceDeprecations: ['legacy-js-api'],
-      //   },
-      // },
+      preprocessorOptions: {
+        scss: {
+          // additionalData: `@use "sass:math";`,
+          silenceDeprecations: ['legacy-js-api'],
+        },
+      },
       postcss: {
         plugins: [
           tailwindcss,
