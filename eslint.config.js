@@ -50,7 +50,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['*.{js,cjs}', 'plugins/**/*.{js,cjs}', 'scripts/**/*.{js,cjs}'],
+    files: ['*.{js,cjs,mjs,ts}', 'plugins/**/*.{js,cjs,mjs,ts}', 'scripts/**/*.{js,cjs,mjs,ts}'],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.node,
