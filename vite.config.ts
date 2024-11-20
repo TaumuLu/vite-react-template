@@ -1,5 +1,7 @@
+import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
 import postCssPxToRem from 'postcss-pxtorem'
+import tailwindcss from 'tailwindcss'
 // import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig, loadEnv } from 'vite'
 
@@ -80,14 +82,16 @@ export default defineConfig(({ mode, command }) => {
       __COMMIT_HASH__: JSON.stringify(commitHash),
     },
     css: {
-      preprocessorOptions: {
-        scss: {
-          additionalData: `@use "sass:math"; @use "@/styles/variable.scss";`,
-          silenceDeprecations: ['legacy-js-api'],
-        },
-      },
+      // preprocessorOptions: {
+      //   scss: {
+      //     additionalData: `@use "sass:math";`,
+      //     silenceDeprecations: ['legacy-js-api'],
+      //   },
+      // },
       postcss: {
         plugins: [
+          tailwindcss,
+          autoprefixer,
           postCssPxToRem({
             rootValue: () => {
               return rootValue
