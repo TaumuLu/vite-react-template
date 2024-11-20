@@ -66,6 +66,7 @@ export default defineConfig(({ mode, command }) => {
     server: {
       host: '0.0.0.0',
       open: isTrue(env.VITE_OPEN),
+      port: Number(env.VITE_PORT || null),
       proxy: {
         // '/api': {
         //   target: 'http://127.0.0.1:8089/',
