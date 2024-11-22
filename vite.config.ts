@@ -1,4 +1,4 @@
-import react from '@vitejs/plugin-react'
+import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
 import postCssPxToRem from 'postcss-pxtorem'
