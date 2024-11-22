@@ -7,9 +7,10 @@ import globals from 'globals'
 import tseslint from 'typescript-eslint'
 
 export default tseslint.config(
-  eslint.configs.recommended,
-  ...tseslint.configs.recommended,
+  { ignores: ['dist'] },
+  // common
   {
+    extends: [eslint.configs.recommended, ...tseslint.configs.recommended],
     plugins: {
       prettier,
       'simple-import-sort': simpleImportSort,
@@ -49,6 +50,7 @@ export default tseslint.config(
       'no-empty': 'warn',
     },
   },
+  // nodejs
   {
     files: ['', 'plugins/**', 'scripts/**', 'server/**'].map(path => `${path}*.{js,cjs,mjs,ts}`),
     languageOptions: {
@@ -56,6 +58,7 @@ export default tseslint.config(
       globals: globals.node,
     },
   },
+  // react
   {
     files: ['src/**/*.{ts,tsx,mjs}'],
     // ignores: ['lib/*', 'backup/*', 'dist/*', 'public/*', '.vite/*', 'backup/*', '**/node_modules/'],

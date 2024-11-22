@@ -1,3 +1,4 @@
+import react from '@vitejs/plugin-react'
 import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
 import postCssPxToRem from 'postcss-pxtorem'
@@ -6,8 +7,6 @@ import tailwindcss from 'tailwindcss'
 import { defineConfig, loadEnv } from 'vite'
 
 import { writeVersion } from './plugins/writeVersion'
-
-// const version = process.env.VITE_COMMIT_HASH ?? 'dev'
 
 // 写版本号到文件
 const commitHash = writeVersion()
@@ -40,6 +39,7 @@ export default defineConfig(({ mode, command }) => {
       },
     },
     plugins: [
+      react(),
       // react({
       // babel: {
       //   plugins: [
