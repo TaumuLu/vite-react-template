@@ -1,5 +1,9 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
+// import { KeyValuePair } from 'tailwindcss/types/config'
+
+// const unit = '--unit'
+// const convert = value => `calc(${value} * var(${unit}))`
 
 export default {
   darkMode: 'class',
@@ -15,13 +19,28 @@ export default {
       '2xl': '1536px',
       '3xl': '1920px',
     },
+    // spacing: () => {
+    //   return Array.from({ length: 201 }).reduce<KeyValuePair<string>>((map, _, index) => {
+    //     map[index] = `${convert(index)}`
+    //     return map
+    //   }, {})
+    // },
     extend: {
-      aspectRatio: {
-        '3/1': '3 / 1',
-      },
       backgroundImage: () => ({
         loginBg: 'var(--login-bg)',
       }),
+      // fontSize: ({ theme }) => ({
+      //   ...theme('spacing'),
+      // }),
+      // borderWidth: ({ theme }) => ({
+      //   ...theme('spacing'),
+      // }),
+      // borderRadius: ({ theme }) => ({
+      //   ...theme('spacing'),
+      // }),
+      aspectRatio: {
+        '3/1': '3 / 1',
+      },
       width: {
         sm: '640px',
         md: '768px',
@@ -33,8 +52,6 @@ export default {
       height: {},
       padding: {},
       boxShadow: {},
-      borderWidth: {},
-      borderRadius: {},
       colors: {
         // 主题色
         // theme 开头作为标识方便识别查找，下划线断词和 tailwind 区分开
@@ -62,6 +79,10 @@ export default {
 
   plugins: [
     require('tailwindcss-animate'),
+    // function ({ addVariant }) {
+    //   addVariant('vertical', '.vertical &')
+    //   addVariant('horizontal', '.horizontal &')
+    // },
     plugin(({ addUtilities }) => {
       const newUtilities = {
         '.flex-center': {

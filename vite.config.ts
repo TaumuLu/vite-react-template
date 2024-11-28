@@ -1,14 +1,10 @@
-import tailwindcssNesting from '@tailwindcss/nesting'
 import react from '@vitejs/plugin-react-swc'
-import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
-import postcssImport from 'postcss-import'
-import postCssPxToRem from 'postcss-pxtorem'
-import tailwindcss from 'tailwindcss'
 // import { visualizer } from 'rollup-plugin-visualizer'
 import { defineConfig, loadEnv } from 'vite'
 
 import { writeVersion } from './plugins/writeVersion'
+import { rootValue } from './postcss.config.js'
 
 // 写版本号到文件
 const commitHash = writeVersion()
@@ -16,8 +12,6 @@ const commitHash = writeVersion()
 const envDir = './env'
 
 const isTrue = flag => flag === 'true'
-
-const rootValue = 192
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -89,26 +83,6 @@ export default defineConfig(({ mode, command }) => {
           // additionalData: `@use "sass:math";`,
           silenceDeprecations: ['legacy-js-api'],
         },
-      },
-      postcss: {
-        plugins: [
-          postcssImport,
-          tailwindcssNesting,
-          tailwindcss,
-          autoprefixer,
-          // postCssPxToRem({
-          //   rootValue: () => {
-          //     return rootValue
-          //   },
-          //   propList: ['*'],
-          //   exclude: input => {
-          //     if (input.endsWith('.rem.scss')) {
-          //       return false
-          //     }
-          //     return true
-          //   },
-          // }),
-        ],
       },
     },
   }
