@@ -3,20 +3,30 @@
   padding: 2rem;
   margin: 0 auto;
   text-align: center;
-}
 
-.logo {
-  height: 6em;
-  transition: filter 300ms;
-  will-change: filter;
-}
+  .card {
+    padding: 2em;
 
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
+    .read-the-docs {
+      color: #888;
+    }
+  }
 
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  .logo {
+    &:hover {
+      filter: drop-shadow(0 0 2em #646cffaa);
+    }
+  }
+
+  .logo {
+    height: 6em;
+    transition: filter 300ms;
+    will-change: filter;
+
+    .react:hover {
+      filter: drop-shadow(0 0 2em #61dafbaa);
+    }
+  }
 }
 
 @keyframes logo-spin {
@@ -33,12 +43,4 @@
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

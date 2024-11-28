@@ -1,6 +1,8 @@
+import tailwindcssNesting from '@tailwindcss/nesting'
 import react from '@vitejs/plugin-react-swc'
 import autoprefixer from 'autoprefixer'
 import { resolve } from 'path'
+import postcssImport from 'postcss-import'
 import postCssPxToRem from 'postcss-pxtorem'
 import tailwindcss from 'tailwindcss'
 // import { visualizer } from 'rollup-plugin-visualizer'
@@ -90,20 +92,22 @@ export default defineConfig(({ mode, command }) => {
       },
       postcss: {
         plugins: [
+          postcssImport,
+          tailwindcssNesting,
           tailwindcss,
           autoprefixer,
-          postCssPxToRem({
-            rootValue: () => {
-              return rootValue
-            },
-            propList: ['*'],
-            exclude: input => {
-              if (input.endsWith('.rem.scss')) {
-                return false
-              }
-              return true
-            },
-          }),
+          // postCssPxToRem({
+          //   rootValue: () => {
+          //     return rootValue
+          //   },
+          //   propList: ['*'],
+          //   exclude: input => {
+          //     if (input.endsWith('.rem.scss')) {
+          //       return false
+          //     }
+          //     return true
+          //   },
+          // }),
         ],
       },
     },

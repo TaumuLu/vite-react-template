@@ -11,7 +11,6 @@ export default {
       sm: '640px',
       md: '768px',
       lg: '1024px',
-      sxg: '1124px',
       xl: '1280px',
       '2xl': '1536px',
       '3xl': '1920px',
@@ -30,29 +29,18 @@ export default {
         xl: '1280px',
         '2xl': '1536px',
         '3xl': '1920px',
-        layout_top: 'var(--layoutTop)',
       },
-      height: {
-        layout_top: 'var(--layoutTop)',
-      },
-      padding: {
-        layout_top: 'var(--layoutTop)',
-      },
-      boxShadow: {
-        theme_wrap: 'var(--wrap-shadow)',
-      },
+      height: {},
+      padding: {},
+      boxShadow: {},
       borderWidth: {},
-      borderRadius: {
-        mid: '20px',
-      },
+      borderRadius: {},
       colors: {
         // 主题色
         // theme 开头作为标识方便识别查找，下划线断词和 tailwind 区分开
         theme_background: 'var(--background)', // 背景
         theme_foreground: 'var(--foreground)', // 前景
         theme_h1: 'var(--h1)', // 一级标题
-        theme_h2: 'var(--h2)', // 二级标题
-        theme_btn: 'var(--btn)', // 按钮
         theme_border_1: 'var(--border-1)', // 边框1
       },
       keyframes: {
