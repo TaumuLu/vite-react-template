@@ -1,9 +1,11 @@
 import type { Config } from 'tailwindcss'
 import plugin from 'tailwindcss/plugin'
-// import { KeyValuePair } from 'tailwindcss/types/config'
+import { KeyValuePair } from 'tailwindcss/types/config'
 
-// const unit = '--unit'
-// const convert = value => `calc(${value} * var(${unit}))`
+const unit = '--unit'
+const rootValue = '--rootValue'
+
+const convert = value => `calc(${value} * var(${unit}) / var(${rootValue}))`
 
 export default {
   darkMode: 'class',
@@ -11,6 +13,12 @@ export default {
   prefix: '',
   fontFamily: {},
   theme: {
+    spacing: () => {
+      return Array.from({ length: 201 }).reduce<KeyValuePair<string>>((map, _, index) => {
+        map[index] = `${convert(index)}`
+        return map
+      }, {})
+    },
     screens: {
       sm: '640px',
       md: '768px',
@@ -19,12 +27,6 @@ export default {
       '2xl': '1536px',
       '3xl': '1920px',
     },
-    // spacing: () => {
-    //   return Array.from({ length: 201 }).reduce<KeyValuePair<string>>((map, _, index) => {
-    //     map[index] = `${convert(index)}`
-    //     return map
-    //   }, {})
-    // },
     extend: {
       backgroundImage: () => ({
         loginBg: 'var(--login-bg)',
@@ -79,10 +81,12 @@ export default {
 
   plugins: [
     require('tailwindcss-animate'),
-    // function ({ addVariant }) {
-    //   addVariant('vertical', '.vertical &')
-    //   addVariant('horizontal', '.horizontal &')
-    // },
+    function ({ addVariant }) {
+      addVariant('vertical', '.vertical &')
+      addVariant('horizontal', '.horizontal &')
+      addVariant('active', '.active &')
+      addVariant('rem-scope', '.rem-scope &')
+    },
     plugin(({ addUtilities }) => {
       const newUtilities = {
         '.flex-center': {

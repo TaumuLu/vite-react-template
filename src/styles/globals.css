@@ -17,3 +17,13 @@
     font-size: 62.5%;
   }
 } */
+
+:root {
+  --unit: 1px; /* 默认使用 px */
+  --rootValue: 1;
+}
+
+.rem-scope {
+  --unit: 1rem; /* 修改单位使用 rem */
+  --rootValue: 37.5;
+}
