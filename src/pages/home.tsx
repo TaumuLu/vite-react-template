@@ -3,7 +3,7 @@ import { useState } from 'react'
 import viteLogo from '/vite.svg'
 import reactLogo from '@/assets/react.svg'
 
-function App() {
+export const Component = () => {
   const [count, setCount] = useState(0)
 
   return (
@@ -27,7 +27,7 @@ function App() {
         <div className='rounded-xl bg-white/70 p-6 text-center shadow-lg shadow-slate-200/50 backdrop-blur-md transition-shadow hover:shadow-xl'>
           <h2 className='mb-4 text-xl font-bold text-slate-800 md:text-2xl'>计数器</h2>
           <button
-            className='rounded-lg bg-indigo-500 px-6 py-2.5 text-white shadow-md shadow-indigo-500/20 transition-colors hover:bg-indigo-600 hover:shadow-lg hover:shadow-indigo-500/30 active:bg-indigo-700'
+            className='py-2.5 rounded-lg bg-indigo-500 px-6 text-white shadow-md shadow-indigo-500/20 transition-colors hover:bg-indigo-600 hover:shadow-lg hover:shadow-indigo-500/30 active:bg-indigo-700'
             onClick={() => setCount(count => count + 1)}
           >
             点击次数: {count}
@@ -37,5 +37,3 @@ function App() {
     </div>
   )
 }
-
-export default App

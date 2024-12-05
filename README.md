@@ -7,7 +7,7 @@
 - src
   - assets：资源文件
   - components：公共组件
-  - page：路由页面
+  - pages：路由页面
   - constant：常量、枚举、默认值等
   - router：路由配置
   - styles：全局公共样式
