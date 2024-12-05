@@ -2,21 +2,17 @@
 
 ## 目录结构
 
-- docs：开发文档记录
 - env：统一存放环境变量目录
 - scripts：脚本
 - src
   - assets：资源文件
   - components：公共组件
+  - page：路由页面
   - constant：常量、枚举、默认值等
-  - router：路由
+  - router：路由配置
   - styles：全局公共样式
   - types：ts 类型声明
   - utils：工具函数
-
-### 移动端开发
-
-- 移动端路由文件以 .mobile.tsx 结尾，动态加载会判断当前端加载对应的 index 文件
 
 ## TODO
 
@@ -49,9 +45,4 @@
 
 - [vite](https://cn.vitejs.dev/)
 - [react-router](https://reactrouter.com/en/main/start/overview)
-- [mobx](https://mobx.js.org/README.html)
-- [antd](https://ant-design.antgroup.com/docs/react/introduce-cn)
-- [recoil](https://www.recoiljs.cn/docs/introduction/installation)
-- [react-i18next](https://react.i18next.com/getting-started)
-- [react-device-detect](https://github.com/duskload/react-device-detect)
 - [lodash](https://www.lodashjs.com/)

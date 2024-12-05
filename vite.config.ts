@@ -77,13 +77,13 @@ export default defineConfig(({ mode, command }) => {
       __ROOT_VALUE__: JSON.stringify(rootValue),
       __COMMIT_HASH__: JSON.stringify(commitHash),
     },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          // additionalData: `@use "sass:math";`,
-          silenceDeprecations: ['legacy-js-api'],
-        },
-      },
-    },
+    // css: {
+    //   preprocessorOptions: {
+    //     scss: {
+    //       // additionalData: `@use "sass:math";`,
+    //       silenceDeprecations: ['legacy-js-api'],
+    //     },
+    //   },
+    // },
   }
 })

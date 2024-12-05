@@ -14,7 +14,7 @@ export default {
   fontFamily: {},
   theme: {
     spacing: () => {
-      return Array.from({ length: 201 }).reduce<KeyValuePair<string>>((map, _, index) => {
+      return Array.from({ length: 1001 }).reduce<KeyValuePair<string>>((map, _, index) => {
         map[index] = `${convert(index)}`
         return map
       }, {})
