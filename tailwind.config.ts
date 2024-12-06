@@ -28,9 +28,9 @@ export default {
       '3xl': '1920px',
     },
     extend: {
-      backgroundImage: () => ({
-        loginBg: 'var(--login-bg)',
-      }),
+      // backgroundImage: () => ({
+      //   loginBg: 'var(--login-bg)',
+      // }),
       // fontSize: ({ theme }) => ({
       //   ...theme('spacing'),
       // }),
@@ -54,28 +54,28 @@ export default {
       height: {},
       padding: {},
       boxShadow: {},
-      colors: {
-        // 主题色
-        // theme 开头作为标识方便识别查找，下划线断词和 tailwind 区分开
-        theme_background: 'var(--background)', // 背景
-        theme_foreground: 'var(--foreground)', // 前景
-        theme_h1: 'var(--h1)', // 一级标题
-        theme_border_1: 'var(--border-1)', // 边框1
-      },
-      keyframes: {
-        accordion_down: {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        accordion_up: {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
-        },
-      },
-      animation: {
-        accordion_down: 'accordion_down 0.2s ease-out',
-        accordion_up: 'accordion_up 0.2s ease-out',
-      },
+      // colors: {
+      //   // 主题色
+      //   // theme 开头作为标识方便识别查找，下划线断词和 tailwind 区分开
+      //   theme_background: 'var(--background)', // 背景
+      //   theme_foreground: 'var(--foreground)', // 前景
+      //   theme_h1: 'var(--h1)', // 一级标题
+      //   theme_border_1: 'var(--border-1)', // 边框1
+      // },
+      // keyframes: {
+      //   accordion_down: {
+      //     from: { height: '0' },
+      //     to: { height: 'var(--radix-accordion-content-height)' },
+      //   },
+      //   accordion_up: {
+      //     from: { height: 'var(--radix-accordion-content-height)' },
+      //     to: { height: '0' },
+      //   },
+      // },
+      // animation: {
+      //   accordion_down: 'accordion_down 0.2s ease-out',
+      //   accordion_up: 'accordion_up 0.2s ease-out',
+      // },
     },
   },
 

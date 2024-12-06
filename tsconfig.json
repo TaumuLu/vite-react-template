@@ -22,7 +22,7 @@
     "strictNullChecks": false,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["./src/*"]
     }
   },
   "types": ["gsap/types"],
