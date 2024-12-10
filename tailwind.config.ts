@@ -92,6 +92,12 @@ export default {
         '.flex-center': {
           '@apply flex justify-center items-center': {},
         },
+        '.flex-row-center': {
+          '@apply flex flex-row justify-center': {},
+        },
+        '.flex-col-center': {
+          '@apply flex flex-col justify-center': {},
+        },
       }
       addUtilities(newUtilities)
     }),

@@ -7,33 +7,32 @@ export const Component = () => {
   const [count, setCount] = useState(0)
 
   return (
-    <div className='min-h-screen bg-gradient-to-br from-slate-50 to-slate-100'>
-      {/* 响应式导航栏 */}
-      <nav className='relative border-b border-slate-200 bg-white/70 backdrop-blur-md'>
-        <div className='mx-auto max-w-6xl px-4'>
-          <div className='flex h-16 items-center justify-between'>
-            {/* Logo区域 - 在所有屏幕尺寸下显示 */}
-            <div className='flex items-center space-x-4'>
-              <img src={viteLogo} className='h-8 w-8 transition-transform hover:scale-110' alt='Vite logo' />
-              <img src={reactLogo} className='h-8 w-8 transition-transform hover:scale-110' alt='React logo' />
-            </div>
-          </div>
-        </div>
-      </nav>
-
-      {/* 主要内容区域 */}
-      <main className='container mx-auto px-4 py-8'>
-        {/* 卡片1 */}
-        <div className='rounded-xl bg-white/70 p-6 text-center shadow-lg shadow-slate-200/50 backdrop-blur-md transition-shadow hover:shadow-xl'>
-          <h2 className='mb-4 text-xl font-bold text-slate-800 md:text-2xl'>计数器</h2>
-          <button
-            className='py-2.5 rounded-lg bg-indigo-500 px-6 text-white shadow-md shadow-indigo-500/20 transition-colors hover:bg-indigo-600 hover:shadow-lg hover:shadow-indigo-500/30 active:bg-indigo-700'
-            onClick={() => setCount(count => count + 1)}
-          >
-            点击次数: {count}
-          </button>
-        </div>
-      </main>
+    <div className='size-full flex-col-center'>
+      <div className='flex justify-center'>
+        <a href='https://vitejs.dev' target='_blank'>
+          <img src={viteLogo} className='h-[144px] w-[144px] p-6' alt='Vite logo' />
+        </a>
+        <a href='https://react.dev' target='_blank'>
+          <img
+            src={reactLogo}
+            className='h-[144px] w-[144px] animate-[spin_20s_linear_infinite] p-6'
+            alt='React logo'
+          />
+        </a>
+      </div>
+      <h1 className='text-center text-[3.2rem] text-white'>Vite + React</h1>
+      <div className='p-8 flex-row-center'>
+        <button
+          onClick={() => setCount(count => count + 1)}
+          className='rounded-lg border border-transparent bg-gray-700 px-12 py-8 text-white transition-colors duration-300 hover:border-[#646cff] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646cff]'
+        >
+          count is {count}
+        </button>
+      </div>
+      <p className='mt-4 text-center text-white'>
+        Edit <code className='rounded bg-blue-500 px-2 py-1 font-mono'>src/App.tsx</code> and save to test HMR
+      </p>
+      <p className='text-center text-[#888]'>Click on the Vite and React logos to learn more</p>
     </div>
   )
 }

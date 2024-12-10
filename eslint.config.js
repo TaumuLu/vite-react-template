@@ -1,4 +1,5 @@
 import eslint from '@eslint/js'
+import eslintConfigPrettier from 'eslint-config-prettier'
 import prettier from 'eslint-plugin-prettier'
 import reactHooks from 'eslint-plugin-react-hooks'
 import reactRefresh from 'eslint-plugin-react-refresh'
@@ -50,6 +51,7 @@ export default tseslint.config(
       'no-empty': 'warn',
     },
   },
+  eslintConfigPrettier,
   // nodejs
   {
     files: ['', 'plugins/**', 'scripts/**', 'server/**'].map(path => `${path}*.{js,cjs,mjs,ts}`),
