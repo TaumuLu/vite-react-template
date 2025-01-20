@@ -24,7 +24,7 @@ export const Component = () => {
       <div className='p-8 flex-row-center'>
         <button
           onClick={() => setCount(count => count + 1)}
-          className='rounded-lg border border-transparent bg-gray-700 px-12 py-8 text-white transition-colors duration-300 hover:border-[#646cff] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646cff]'
+          className='rounded-lg border border-transparent bg-gray-700 px-4 py-2 text-white transition-colors duration-300 hover:border-[#646cff] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#646cff]'
         >
           count is {count}
         </button>

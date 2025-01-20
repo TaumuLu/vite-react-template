@@ -13,12 +13,12 @@ export default {
   prefix: '',
   fontFamily: {},
   theme: {
-    spacing: () => {
-      return Array.from({ length: 1001 }).reduce<KeyValuePair<string>>((map, _, index) => {
-        map[index] = `${convert(index)}`
-        return map
-      }, {})
-    },
+    // spacing: () => {
+    //   return Array.from({ length: 1001 }).reduce<KeyValuePair<string>>((map, _, index) => {
+    //     map[index] = `${convert(index)}`
+    //     return map
+    //   }, {})
+    // },
     screens: {
       sm: '640px',
       md: '768px',
